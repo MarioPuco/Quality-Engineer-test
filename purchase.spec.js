@@ -2,6 +2,8 @@
 import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
+  const username = "test-user@testing.com"; 
+  const password = "!Mirko12345";
   // Runs before each test and signs in each page.
   await page.goto('https://magento.softwaretestingboard.com/');
   await page.getByLabel('Consent', { exact: true }).click();
@@ -9,9 +11,9 @@ test.beforeEach(async ({ page }) => {
   await page.getByRole('link', { name: 'Sign In' }).click();
   await page.getByLabel('Email', { exact: true }).click();
   // Fill in the User info and Sign In
-  await page.getByLabel('Email', { exact: true }).fill('test-user@testing.com');
+  await page.getByLabel('Email', { exact: true }).fill(username);
   await page.getByLabel('Email', { exact: true }).press('Tab');
-  await page.getByLabel('Password').fill('!Mirko12345');
+  await page.getByLabel('Password').fill(password);
   await page.getByRole('button', { name: 'Sign In' }).click();
 });
 
