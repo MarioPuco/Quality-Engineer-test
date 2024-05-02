@@ -1,5 +1,5 @@
 //  Test function that declares tests and expect function to write assertions.
-import { test } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
 test.beforeEach( async ({ page }) => {
   const username = "test-user2@testing.com"; 
