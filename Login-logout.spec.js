@@ -12,7 +12,7 @@ test('test', async ({ page }) => {
   await page.getByLabel('Email', { exact: true }).press('Tab');
   await page.getByLabel('Password').fill('!Mirko12345');
   await page.getByRole('button', { name: 'Sign In' }).click();
-  // Sign Out from the Pagenpm
+  // Sign Out from the Page
   await page.getByRole('banner').getByText('Welcome, Mario FirstTest!').click();
   await page.getByRole('banner').locator('button').filter({ hasText: 'Change' }).click();
   await page.getByRole('link', { name: 'Sign Out' }).click();
