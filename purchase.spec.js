@@ -16,8 +16,9 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('Purchase and item via Add to Chart', async ({ page }) => {
+      // Open the page.
       await page.goto('https://magento.softwaretestingboard.com/');
-      await page.getByLabel('Consent', { exact: true }).click();
+      // await page.getByLabel('Consent', { exact: true }).click();
       await page.getByPlaceholder('Search entire store here...').click();
       await page.getByPlaceholder('Search entire store here...').fill('Radiant Tee');
       await page.getByPlaceholder('Search entire store here...').press('Enter');
@@ -25,11 +26,14 @@ test('Purchase and item via Add to Chart', async ({ page }) => {
       await page.getByLabel('S', { exact: true }).click();
       await page.getByLabel('Orange').click();
       await page.getByRole('button', { name: 'Add to Cart' }).click();
-      await page.getByRole('link', { name: ' My Cart 1 1\nitems' }).click();
-      await page.getByRole('spinbutton', { name: 'Qty:' }).click();
-      await page.getByRole('spinbutton', { name: 'Qty:' }).click();
-      await page.getByRole('spinbutton', { name: 'Qty:' }).fill('2');
-      await page.getByRole('button', { name: 'Update' }).click();
+      await page.goto('https://magento.softwaretestingboard.com/checkout/cart/')
+      //await page.getByRole('link', { name: ' My Cart 1 items' }).click();
+      //await page.getByRole('spinbutton', { name: 'Qty:' }).click();
+      //await page.getByRole('spinbutton', { name: 'Qty:' }).fill('');
+      //await page.getByRole('spinbutton', { name: 'Qty:' }).fill('3');
+      await page.getByRole('spinbutton', { name: 'Qty' }).click();
+      await page.getByRole('spinbutton', { name: 'Qty' }).fill('3');
+      await page.getByRole('button', { name: 'Update Shopping Cart' }).click();
       await page.getByRole('button', { name: 'Proceed to Checkout' }).click();
       await page.getByLabel('First Name').click();
       await page.getByLabel('First Name').fill('Mario');
@@ -47,11 +51,6 @@ test('Purchase and item via Add to Chart', async ({ page }) => {
       await page.getByLabel('Phone Number').fill('+38595371234');
       await page.getByRole('button', { name: 'Next' }).click();
       await page.getByRole('textbox', { name: 'Email Address *' }).click();
-      await page.getByRole('textbox', { name: 'Email Address *' }).fill('user');
-      await page.getByRole('textbox', { name: 'Email Address *' }).press('Alt+Control+@');
-      await page.getByRole('textbox', { name: 'Email Address *' }).click();
-      await page.getByRole('textbox', { name: 'Email Address *' }).press('Alt+v');
-      await page.getByRole('textbox', { name: 'Email Address *' }).press('Alt+v');
       await page.getByRole('textbox', { name: 'Email Address *' }).fill('userRadiant Tee');
       await page.getByText('Email Address This is a').click();
       await page.getByRole('button', { name: 'Next' }).click();
