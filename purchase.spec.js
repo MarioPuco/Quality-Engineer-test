@@ -15,9 +15,10 @@ test.beforeEach(async ({ page }) => {
   await page.getByRole('button', { name: 'Sign In' }).click();
 });
 
-test('Purchase and item via Add to Chart', async ({ page }) => {
+test('Purchase an item via Add to Chart', async ({ page }) => {
       // Open the page.
       await page.goto('https://magento.softwaretestingboard.com/');
+      // Consent pop-up is present while using codegen but not while running tests
       // await page.getByLabel('Consent', { exact: true }).click();
       await page.getByPlaceholder('Search entire store here...').click();
       await page.getByPlaceholder('Search entire store here...').fill('Radiant Tee');
@@ -26,38 +27,19 @@ test('Purchase and item via Add to Chart', async ({ page }) => {
       await page.getByLabel('S', { exact: true }).click();
       await page.getByLabel('Orange').click();
       await page.getByRole('button', { name: 'Add to Cart' }).click();
-      await page.goto('https://magento.softwaretestingboard.com/checkout/cart/')
-      //await page.getByRole('link', { name: ' My Cart 1 items' }).click();
-      //await page.getByRole('spinbutton', { name: 'Qty:' }).click();
-      //await page.getByRole('spinbutton', { name: 'Qty:' }).fill('');
-      //await page.getByRole('spinbutton', { name: 'Qty:' }).fill('3');
+      await page.goto('https://magento.softwaretestingboard.com/checkout/cart/');
       await page.getByRole('spinbutton', { name: 'Qty' }).click();
+      // Clear previous value from Qty input
+      await page.getByRole('spinbutton', { name: 'Qty' }).fill('');
       await page.getByRole('spinbutton', { name: 'Qty' }).fill('3');
       await page.getByRole('button', { name: 'Update Shopping Cart' }).click();
       await page.getByRole('button', { name: 'Proceed to Checkout' }).click();
-      await page.getByLabel('First Name').click();
-      await page.getByLabel('First Name').fill('Mario');
-      await page.getByLabel('First Name').press('Tab');
-      await page.getByLabel('Last Name').fill('Test');
-      await page.getByLabel('Street Address: Line 1').click();
-      await page.getByLabel('Street Address: Line 1').fill('Kupreska Streett');
-      await page.getByLabel('City').click();
-      await page.getByLabel('City').fill('Split');
-      await page.locator('select[name="region_id"]').selectOption('17');
-      await page.getByLabel('Zip/Postal Code').click();
-      await page.getByLabel('Zip/Postal Code').fill('21000');
-      await page.getByLabel('Country').selectOption('HR');
-      await page.getByLabel('Phone Number').click();
-      await page.getByLabel('Phone Number').fill('+38595371234');
+      // Await Shipping page to be loaded
+      await page.goto('https://magento.softwaretestingboard.com/checkout/#shipping');
       await page.getByRole('button', { name: 'Next' }).click();
-      await page.getByRole('textbox', { name: 'Email Address *' }).click();
-      await page.getByRole('textbox', { name: 'Email Address *' }).fill('userRadiant Tee');
-      await page.getByText('Email Address This is a').click();
-      await page.getByRole('button', { name: 'Next' }).click();
-      await page.locator('select[name="region_id"]').selectOption('515');
-      await page.getByRole('button', { name: 'Next' }).click();
+      // Await Payment page to be loaded before placing an order
+      await page.goto('https://magento.softwaretestingboard.com/checkout/#payment');
       await page.getByRole('button', { name: 'Place Order' }).click();
-      await page.goto('https://magento.softwaretestingboard.com/checkout/onepage/success/');
     });
 
 test('second', async ({ page }) => {
