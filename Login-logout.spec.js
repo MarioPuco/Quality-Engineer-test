@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('Login-logout Test', async ({ page }) => {
     // Open the URL
   await page.goto('https://magento.softwaretestingboard.com/');
   await page.getByLabel('Consent', { exact: true }).click();
