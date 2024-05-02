@@ -4,7 +4,7 @@ import { test, expect } from '@playwright/test';
 test('Register new user', async ({ page }) => {
   // Username and Passwored declared for easier reusability during testing
   const username = "test321@tesingz.com";
-  const password = "RandomPassword321"
+  const password = "RandomPassword321";
     
   await page.goto('https://magento.softwaretestingboard.com/');
   await page.getByLabel('Consent', { exact: true }).click();

@@ -1,7 +1,7 @@
 //  Test function that declares tests and expect function to write assertions.
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 
-test.beforeEach(async ({ page }) => {
+test.beforeEach( async ({ page }) => {
   const username = "test-user2@testing.com"; 
   const password = "!Mirko12345";
   // Runs before each test and signs in each page.
@@ -17,7 +17,7 @@ test.beforeEach(async ({ page }) => {
   await page.getByRole('button', { name: 'Sign In' }).click();
 });
 
-test('Purchase an item via Add to Chart', async ({ page, expect }) => {
+test('Purchase an item via Add to Chart', async ({ page }) => {
       // Open the page.
       await page.goto('https://magento.softwaretestingboard.com/');
       // Consent pop-up is present while using codegen but not while running tests
