@@ -2,7 +2,7 @@
 import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
-  const username = "test-user@testing.com"; 
+  const username = "test-user2@testing.com"; 
   const password = "!Mirko12345";
   // Runs before each test and signs in each page.
   await page.goto('https://magento.softwaretestingboard.com/');
@@ -21,7 +21,7 @@ test('Purchase an item via Add to Chart', async ({ page }) => {
       // Open the page.
       await page.goto('https://magento.softwaretestingboard.com/');
       // Consent pop-up is present while using codegen but not while running tests
-      // await page.getByLabel('Consent', { exact: true }).click();
+      //await page.getByLabel('Consent', { exact: true }).click();
       await page.getByPlaceholder('Search entire store here...').click();
       await page.getByPlaceholder('Search entire store here...').fill('Radiant Tee');
       await page.getByPlaceholder('Search entire store here...').press('Enter');
@@ -44,6 +44,10 @@ test('Purchase an item via Add to Chart', async ({ page }) => {
       await page.getByRole('button', { name: 'Place Order' }).click();
     });
 
-test('second', async ({ page }) => {
-  // page is signed in.
-});
+    test('logout test', async ({ page }) => {
+      await page.getByRole('banner').getByText('Welcome, Mario FirstTest!').click();
+      await page.getByRole('banner').locator('button').filter({ hasText: 'Change' }).click();
+      await page.getByRole('link', { name: 'Sign Out' }).click();
+      await page.goto('https://magento.softwaretestingboard.com/');
+    });
+    
