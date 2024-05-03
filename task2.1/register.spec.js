@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 
 test('Register new user', async ({ page }) => {
   // Username and Passwored declared for easier reusability during testing
-  const username = "test3221@tesingz.com";
+  const username = `test${parseInt(Math.random()*10000)}@tesingz.com`;
   const password = "RandomPassword321";
     
   await page.goto('https://magento.softwaretestingboard.com/');
