@@ -12,9 +12,8 @@ test('Register new user', async ({ page }) => {
   await page.getByLabel('First Name').click();
   await page.getByLabel('First Name').fill(username);
   await page.getByLabel('First Name').press('Tab');
-  await page.getByLabel('Last Name').fill('TestUser02');
   await page.getByLabel('Email', { exact: true }).click();
-  await page.getByLabel('Email', { exact: true }).fill('test321@testing.com');
+  await page.getByLabel('Email', { exact: true }).fill(username);
   await page.getByRole('textbox', { name: 'Password*', exact: true }).click();
   await page.getByRole('textbox', { name: 'Password*', exact: true }).fill(password);
   await page.getByRole('textbox', { name: 'Password*', exact: true }).press('Tab');
