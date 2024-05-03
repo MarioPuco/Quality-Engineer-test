@@ -1,0 +1,163 @@
+1.Sign In
+- User Authentication: The sign-in process is the gateway to the application for users. It ensures that only authorized users can access the application's features and functionalities. From a user perspective, a seamless and reliable sign-in experience is crucial for user satisfaction and retention.
+- Security: Authentication is a fundamental security measure for protecting user data and the application itself from unauthorized access and potential breaches.
+- The "sign in" scenario is critical for both the application and user perspectives due to its impact on user experience, security, reliability, performance... Thorough testing of the sign-in functionality ensures that users can access the application securely and seamlessly, regardless of the platform or environment they are using.
+
+---Test Case---
+
+Step 1: Open https://magento.softwaretestingboard.com/ 
+Expected Result: Webpage is opened in browser
+Step 2: Click on "Sign In" button in navigation section
+Expected Result: 
+- https://magento.softwaretestingboard.com/customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS8%2C/ URL is opened.
+- Customer Login form is displayed
+Step 3: Login with Entering an incorrect password for a valid username
+Expected Result:
+- "The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later." Error message is shown.
+Step 4: Try to login without entering an password or username
+Expected Result:
+- "This is a required field." error message is displayed for both, Username and Password field.
+Step 5: Login with Entering a correct password for a valid username
+Expected Result:
+- User sucessfuly logged in.
+- https://magento.softwaretestingboard.com/customer/account/ page is displayed
+
+2.Create an Account
+-User Onboarding: The account creation process is often the first interaction a user has with the application. It sets the tone for their entire experience. From a user perspective, a smooth, intuitive account creation process is essential for a positive first impression and encourages users to continue engaging with the application.
+-Data Accuracy and Validation: During the account creation process, users typically provide personal information such as email addresses, usernames, and passwords. From the application perspective, it's critical to ensure that this data is accurately captured and validated to prevent errors and inconsistencies in the user database
+-Security: Account creation involves the storage of sensitive user information, including passwords and personal details. From both the application and user perspectives, security is paramount to protect this data from unauthorized access and breaches
+- The "Create an Account" scenario is critical from both the application and user perspectives in  due to its impact on user onboarding, data accuracy, security, user experience and many other factors. Thorough testing of the account creation process ensures that users can register securely and seamlessly, setting the stage for a positive and engaging experience with the application.
+
+---Test Case---
+
+Step 1: Open https://magento.softwaretestingboard.com/ 
+Expected Result: Webpage is opened in browser
+Step 2: Click on "Create an Account" button in navigation section
+Expected Result:
+- https://magento.softwaretestingboard.com/customer/account/create/ URL is opened
+Step 3: Click on "Create an Account" and verify that all mandatory fields are marked as such and cannot be left blank.
+Expected Result:
+- "This is a required field." error message is displayed for all fields marked with (*)
+- User is not able to create an account
+Step 4: Add an invalid email format (i.e. @mario) to Email field
+Expected Result:
+- "Please enter a valid email address (Ex: johndoe@domain.com)." error message is displayed.
+Step 5: Add an Password that contains less than 8 symbols
+Expected Result:
+- "Minimum length of this field must be equal or greater than 8 symbols. Leading and trailing spaces will be ignored." error message is displayed.
+Step 6: Add a different Password to Password and Confirm Password fields
+Expected Result:
+- "Please enter the same value again." error message is displayed for "Confirm Password" field
+Step 7: 
+- Add First Name, Last Name
+- Add Email with valid email format (Ex: johndoe@domain.com)
+- Add a Password that is equal or greater than 8 symbols to Password and Confirm Password fields
+- Click on "Create an Account" button
+Expected Result:
+- User is redirected to https://magento.softwaretestingboard.com/customer/account/ page
+- "Thank you for registering with Main Website Store." success message is displayed.
+
+
+3.Search the store
+- User Navigation: The search functionality is often a primary means for users to find specific content, products, or information within an application. From the user perspective, a robust and accurate search feature is crucial for efficient navigation and locating desired items quickly
+- Accuracy and Relevance: Users expect search results to be accurate and relevant to their queries. From both the application and user perspectives, ensuring the precision and relevance of search results is crucial for a satisfactory user experience
+-  The "Search" scenario is critical from both the application and user perspectives due to its impact on user navigation, engagement, accuracy, performance, error handling, personalization and many more features.
+
+---Test Case---
+Step 1: Open https://magento.softwaretestingboard.com/ 
+Expected Result: Webpage is opened in browser
+Step 2: Input "XY" to Search textfield in upper right corner, press "Enter" and verify that Minimum Search query length is 3 
+Expected Result:
+- "Minimum Search query length is 3" error is displayed
+Step 3: Input "XYZ" to Search textfield in upper right corner, press "Enter" and verify that Minimum Search query length is 3 
+Expected Result:
+- "Your search returned no results" error is displayed
+Step 4: Input "PUS" to Search textfield in upper right corner, press "Enter" and verify that Minimum Search query length is 3
+Expected Result:
+- Related search terms display
+	"Push It Messenger Bag"
+	"Push It Messenger Bag;;;;"
+	"Push It Messenger BagOvernight DuffleVoyage Yoga Bag"
+	"Push It Messenger BagOvernight DuffleVoyage Yoga BagWayfarer Messenger Bag"
+	"Push It Messenger BagOvernight DuffleVoyage Yoga BagWayfarer Messenger BagCrown Summit Backpack"
+Step 5: Input "push it massanger bag" to Search textfield in upper right corner and press "Enter"
+Expected Result:
+-"Push it Messenger Bag" product is listed 
+Step 6: Input "Black" inside Search, don't press "Enter"
+Expected Result:
+- Suggested keywords simmilar to "Black" dropdown is displayed under the search bar
+Step 7: Input "Black" inside Search, press "Enter"
+Expected Result: 
+-Products listed have "Black" color inside their variations / options
+
+
+4.Add to Cart
+- User Intent Fulfillment: For users, the "Add to Cart" functionality represents the action of expressing their intent to purchase a product or service. It's a critical step in the user journey towards completing a transaction. From the user perspective, a seamless and reliable "Add to Cart" process is essential for a smooth shopping experience and ensuring that their desired items are saved for purchase.
+- Inventory Management: The "Add to Cart" functionality affects inventory management and stock availability within the application. From both the application and user perspectives, accurate inventory tracking ensures that users can add available items to their carts without encountering out-of-stock issues or discrepancies in product availability
+- The "Add to Cart" scenario is critical from both the application and user perspectives due to its impact on user intent fulfillment, conversion rates, inventory management, data accuracy, cross-selling, user experience, and transaction security. Thorough testing of the "Add to Cart" functionality ensures that users can seamlessly add items to their carts and proceed with purchases, leading to a positive and satisfying shopping experience with the application.
+
+---Test Case---
+Step 1: Open https://magento.softwaretestingboard.com/ 
+Expected Result: Webpage is opened in browser
+Step 2: Locate "Hot Sellers" section on the page and click on "Add to Cart" button on "Radiant Tee" product
+Expected Result: 
+- https://magento.softwaretestingboard.com/radiant-tee.html is opened
+- "You need to choose options for your item." warrning is displayed
+Step 3: Click on "Add to Cart" button on https://magento.softwaretestingboard.com/radiant-tee.html
+Expected Result: "This is a required field." for Size and Color sections
+Step 4: Select any Size and Color and input "0" to Qty field
+Expected Result: 
+-"Please enter a quantity greater than 0." error message is displayed for Qty field
+Step 5: Select any Size and Color and input "1" to Qty field
+Expected Result: 
+-"You added Radiant Tee to your shopping cart." success message is displayed.
+- Cart icon in the upper right corner has updated, showing "1" item.
+Step 6: Click on "Cart" icon in upper right corner and update Qty field to 3
+Expected Result: 
+- "Cart" popup is displayed
+- Qty field update sucessfuly and "Cart" icon updated to "3"
+Step 7: Click on "Cart" icon in upper right corner and click "View and Edit Cart"
+Expected Result: 
+- Shopping Cart page is displayed
+Step 8: From "More Choices:" section click on "Add to Cart" on any product.
+Expected Result: 
+- "You added -item - to your shopping cart." success message is displayed.
+- Item is added to the Cart
+- Cart icon in the upper right corner has updated, showing "4" items.
+Step 9: Delete the newly added item by clicking on "trash" icon
+Expected Result:
+- Item is removed
+- Cart icon in the upper right corner has updated, showing "3" items.
+
+5.Reset Your Password
+- Security: From both the application and user perspectives, security is paramount when it comes to resetting passwords. This functionality ensures that users who have forgotten their passwords or suspect unauthorized access can regain control over their accounts securely.
+- From the user perspective, a reliable and efficient password reset process is essential for regaining access to their accounts promptly
+
+---Test Case---
+Step 1: Open https://magento.softwaretestingboard.com/ 
+Expected Result: Webpage is opened in browser
+Step 2: Click on "Sign In" button in right upper navigation
+Expected Result:
+- https://magento.softwaretestingboard.com/customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS8%2C/ page is displayed
+Step 3: Click on "Forgot Your Password?"
+Expected Result:
+- https://magento.softwaretestingboard.com/customer/account/forgotpassword/ is displayed
+Step 4: Add an invalid email format (i.e. @mario) to Email field 
+Expected Result:
+- "Please enter a valid email address (Ex: johndoe@domain.com)." error is displayed
+Step 5: Add an valid email format (i.e. puco.mario@gmail.com) to Email field 
+Expected Result:
+- "If there is an account associated with puco.mario@gmail.com you will receive an email with a link to reset your password." success message is displayed.
+Step 6: Open Gmail inbox, and validate that email with password reset link is recieved.
+Expected Result:
+- Password reset link is recieved in users inbox. 
+Step 7: Open the link and add an Password that contains less than 8 symbols
+Expected Result:
+- User is unable to set password shorter than 8 symbols
+Step 8: Open the link and set new password for the user that contains 8 or more symbols
+Expected Result:
+- Password updated sucessfuly
+Step 9: Click on "Sign In" button in right upper navigation and login with Email and newly set password.
+Expected Result:
+- User successfuly logged in.
+- https://magento.softwaretestingboard.com/customer/account/index/ is displayed
