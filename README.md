@@ -1,5 +1,7 @@
+## Introduction
 Within this repo you can find solutions for "Quality Engineer - Technical Test Take Home.pdf"
 
+## Table of Contents
  Task 1 -
  - Identified 5 critical scenarios for e-commerce platform. Manual Test Cases can be found in "Task1.txt" file.
 
