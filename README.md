@@ -15,3 +15,7 @@ Task 2.2 -
     - Test - List Users API Call - GET request Test
     - Test - Create user API Call - POST request Test
     - Test - Update API Call - PUT request Test
+      
+## How to run
+ 
+1. To run login-logout test, run `npx playwright test ./task2.1/login-logout`
