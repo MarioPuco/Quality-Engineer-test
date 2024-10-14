@@ -42,5 +42,5 @@ test('Purchase an item via Add to Chart', async ({ page }) => {
       // Await Payment page to be loaded before placing an order
       await page.goto('https://magento.softwaretestingboard.com/checkout/#payment');
       await page.getByRole('button', { name: 'Place Order' }).click();
-      //refactor code
+      //refactor code +1
 });
