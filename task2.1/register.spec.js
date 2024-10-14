@@ -20,4 +20,5 @@ test('Register new user', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Password*', exact: true }).press('Tab');
   await page.getByLabel('Confirm Password').fill(password);
   await page.getByRole('button', { name: 'Create an Account' }).click();
+  // plus one
 });
