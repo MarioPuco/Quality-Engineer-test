@@ -17,4 +17,5 @@ test('Login-logout Test', async ({ page }) => {
   await page.getByRole('banner').locator('button').filter({ hasText: 'Change' }).click();
   await page.getByRole('link', { name: 'Sign Out' }).click();
   await page.goto('https://magento.softwaretestingboard.com/');
+  // comment for the resolve
 });
